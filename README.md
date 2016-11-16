@@ -8,16 +8,13 @@
 * 1.[EliteQing](http://www.cnblogs.com/liinux)
 * 2.[TigerXue](https://github.com/tigerxue)
 
-##模拟登录一些常见的网站
-
-
 #主要基于以下的 Java的第三 library 
 * 1. [httpclient](http://hc.apache.org/downloads.cgi) HTTP请求以及响应
 * 2. [Selenium](http://docs.seleniumhq.org/download/) 模拟自动登录
 * 3. [tesseract-ocr](https://github.com/tesseract-ocr) 验证码识别
 * 4. [bouncycastle](http://www.bouncycastle.org/) 加密解密
 
-## Done
+##模拟登录一些常见的网站Done
 1. [百度](https://www.baidu.com)(已经实现)
 2. [豆瓣](https://accounts.douban.com/login?redir=https://m.douban.com/)(待实现)
 3. [京东](http://www.jd.com/)(已经实现)
@@ -47,7 +44,7 @@
 
 ## something to add
 
-0. 这个项目开始于 2016.9.11，有些网站改了前端登录规则和验证规则，可能模拟登录不能使用了，欢迎大家一起更新完善。
+0. 网站的前端更新、变换较快，若不能用了请多谅解。
 1. 接下来最重要的是重构代码，让大家可以更容易的做出一些自己的功能。
 2. 如果你觉得某个网站的登录很有代表性，欢迎在 issue 中提出，如果你感觉网站的模拟自动登录很有意思，欢迎加入一起完善。
 3. 网站的登录机制有可能经常的变动，若不能使用的时候，请在 issue 中提出如果时间允许的话，我会更新。
