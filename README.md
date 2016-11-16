@@ -6,8 +6,9 @@
 ***
 #使用帮助详见
 * 1.[EliteQing](http://www.cnblogs.com/liinux)
-* 2.[Tigerxue](https://github.com/tigerxue)
-## 模拟登录一些常见的网站
+* 2.[TigerXue](https://github.com/tigerxue)
+
+##模拟登录一些常见的网站
 
 
 #主要基于以下的 Java的第三 library 
