@@ -5,8 +5,8 @@
 *.war
 *.ear
 *.bak
+*.txt
 
 
 .settings/
 target/
-
