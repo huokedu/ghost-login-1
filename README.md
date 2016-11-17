@@ -5,12 +5,12 @@
 
 ***
 
-#主要基于以下的 Java的第三方library 
+#主要基于以下第三方lib及技术 
 * 1. [httpclient](http://hc.apache.org/downloads.cgi) HTTP请求以及响应
 * 2. [selenium](http://docs.seleniumhq.org/download/) 模拟自动登录
-* 3. [tesseract-ocr](https://github.com/tesseract-ocr) 验证码识别
-* 4. [bouncycastle](http://www.bouncycastle.org/) 加密解密
-* 5. [captcha-Recognize](http://blog.csdn.net/problc/article/details/5794460)验证码SVM识别
+* 3. [bouncycastle](http://www.bouncycastle.org/) 加密解密
+* 4. [tesseract-ocr](https://github.com/tesseract-ocr) 验证码Tesseract识别
+* 5. [captcha-Recognize](http://blog.csdn.net/problc/article/details/5794460)验证码LibSVM识别
 
 ##模拟登录一些常见的网站Done
 1. [百度](https://www.baidu.com)(已经实现)
