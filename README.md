@@ -52,8 +52,8 @@
 3. 若第三者用此项目侵犯相关网站权益，一切责任自负；
 
 ## 使用帮助
-* 1.[EliteQing](http://www.cnblogs.com/liinux)
-* 2.[TigerXue](https://github.com/tigerxue)
+* 1.[eliteqing](http://www.cnblogs.com/liinux)
+* 2.[tigerxue](https://github.com/tigerxue)
 
 ## 交流讨论
 1. 开源网络爬虫QQ交流群:322937592
