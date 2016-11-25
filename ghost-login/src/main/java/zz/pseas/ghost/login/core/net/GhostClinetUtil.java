@@ -16,7 +16,7 @@
  * limitations under the License.
  *
  */
-package zz.pseas.ghost.utils;
+package zz.pseas.ghost.login.core.net;
 
 /**   
 * @date 2016年9月14日 下午9:26:00 
@@ -45,10 +45,9 @@ import org.apache.log4j.Logger;
 /**
  * Http连接工具类
  * 
- * @author GS
  */
-public class HttpClinetUtil {
-	private static Logger LOG = Logger.getLogger(HttpClinetUtil.class);
+public class GhostClinetUtil {
+	private static Logger LOG = Logger.getLogger(GhostClinetUtil.class);
 	private static final HttpClient hc;
 	static {
 		hc = new HttpClient();
@@ -62,7 +61,6 @@ public class HttpClinetUtil {
 	}
 
 	/**
-	 * @author GS
 	 * @param url
 	 * @param para
 	 *            get请求中携带的参数
@@ -107,7 +105,6 @@ public class HttpClinetUtil {
 	}
 	
 	/**
-	 * @author GS
 	 * @param url
 	 * @return
 	 * @throws IOException
@@ -142,7 +139,6 @@ public class HttpClinetUtil {
 	}
 
 	/**
-	 * @author GS
 	 * @param url
 	 * @param para
 	 *            Post请求中携带的参数
@@ -181,7 +177,6 @@ public class HttpClinetUtil {
 	}
 
 	/**
-	 * @author GS
 	 * @param url
 	 * @param para
 	 * @param cookie
@@ -225,7 +220,6 @@ public class HttpClinetUtil {
 	}
 
 	/**
-	 * @author GS
 	 * @param url
 	 * @param para
 	 * @param cookie
@@ -262,7 +256,6 @@ public class HttpClinetUtil {
 	}
 
 	/**
-	 * @author GS
 	 * @param url
 	 * @param headers
 	 * @return
@@ -301,7 +294,6 @@ public class HttpClinetUtil {
 	}
 
 	/**
-	 * @author GS
 	 * @param url
 	 * @param para
 	 * @param cookie
@@ -361,7 +353,6 @@ public class HttpClinetUtil {
 	/**
 	 * 返回值为HTTP状态码
 	 * 
-	 * @author GS
 	 * @param url
 	 * @param para
 	 * @param cookie

@@ -18,13 +18,13 @@
  */
 package zz.pseas.ghost.login.baidu;
 
+import static zz.pseas.ghost.login.core.net.GhostClinetUtil.get;
+import static zz.pseas.ghost.login.core.net.GhostClinetUtil.getCookie;
+import static zz.pseas.ghost.login.core.net.GhostClinetUtil.post;
 import static zz.pseas.ghost.utils.CodeUtils.getcode;
 import static zz.pseas.ghost.utils.CodeUtils.getcodeWithAnd;
 import static zz.pseas.ghost.utils.CodeUtils.getcodeWithSingleQua;
 import static zz.pseas.ghost.utils.CodeUtils.getcodeWithoutQua;
-import static zz.pseas.ghost.utils.HttpClinetUtil.get;
-import static zz.pseas.ghost.utils.HttpClinetUtil.getCookie;
-import static zz.pseas.ghost.utils.HttpClinetUtil.post;
 
 import java.io.IOException;
 import java.net.URL;

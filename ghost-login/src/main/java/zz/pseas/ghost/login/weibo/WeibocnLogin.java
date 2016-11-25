@@ -44,8 +44,8 @@ public class WeibocnLogin {
 		// 登录页面的URL
 		String Loginurl = "http://login.weibo.cn/login/";
 		String firstpage = "http://weibo.cn/?vt=4"; // 微博首页的网址
-		String loginnum = "test";
-		String loginpwd = "test";
+		String loginName = "test";
+		String loginPawd = "test";
 
 		CloseableHttpClient httpclient = HttpClients.createDefault(); // 建立客户端的链接
 		HttpGet httpget = new HttpGet(Loginurl);
@@ -71,8 +71,8 @@ public class WeibocnLogin {
 			response.close();
 
 			List<BasicNameValuePair> pairs = new ArrayList<BasicNameValuePair>();
-			pairs.add(new BasicNameValuePair("mobile", loginnum));
-			pairs.add(new BasicNameValuePair(finalpass, loginpwd));
+			pairs.add(new BasicNameValuePair("mobile", loginName));
+			pairs.add(new BasicNameValuePair(finalpass, loginPawd));
 			pairs.add(new BasicNameValuePair("remember", "on"));
 			pairs.add(new BasicNameValuePair("vk", vk));
 
