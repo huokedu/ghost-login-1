@@ -16,9 +16,40 @@
  *
  * 
  */
-/**   
-* @date 2016年9月14日 下午9:26:00 
-* @version   
-* @since JDK 1.8  
-*/
-package zz.pseas.ghost.login.sina;
+package zz.pseas.ghost.login.tencent;
+
+import java.util.List;
+
+import zz.pseas.ghost.login.tencent.dao.AbstractDataBase;
+/**
+ * @date 2016年11月30日 下午12:03:21
+ * @version
+ * @since JDK 1.8
+ */
+public class MainManager {
+	Cookie cookie;
+	List<Contact> contacts;
+	List groups;
+	List discuss;
+	AbstractDataBase database;
+
+	MainManager(Cookie cookie) {
+		this.cookie = cookie;
+	}
+
+	public Contact getContactByQQ(String qq) {
+
+		return null;
+	} // getcontactByQQ
+
+	public Group getGroupByCode(String groupCode) {
+
+		return null;
+	}// getGroupByCode
+
+	public Discuss getDicussByCode(String discussCode) {
+
+		return null;
+	}
+
+}

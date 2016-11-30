@@ -8,5 +8,4 @@ public class ClientTest {
 		String s = client.get("http://www.baidu.com");
 		System.out.println(s);
 	}
-
 }

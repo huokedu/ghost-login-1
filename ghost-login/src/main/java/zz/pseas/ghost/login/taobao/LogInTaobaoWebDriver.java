@@ -65,8 +65,5 @@ public class LogInTaobaoWebDriver {
 		}*/
 		
 		//Thread.sleep(5000);
-		
-		
-		
 	}
 }

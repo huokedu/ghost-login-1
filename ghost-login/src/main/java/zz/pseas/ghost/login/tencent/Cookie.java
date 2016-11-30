@@ -1,5 +1,4 @@
-/**
- *
+/** 
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -15,29 +14,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
+ * 
  */
-package zz.pseas.ghost.login.baidu;
+package zz.pseas.ghost.login.tencent;
 
-import java.io.IOException;
-
-import javax.swing.JOptionPane;
-/**   
-* @date 2016年9月14日 下午9:26:00 
-* @version   
-* @since JDK 1.8  
-*/
-public class BaiduLogInTest {
-
-	public static void main(String[] args) {
-		String testName = JOptionPane.showInputDialog("请输入用户名");
-		String passWord = JOptionPane.showInputDialog("请输入密码");
-		try {
-			String bdCookies = BaiduLogin.getBaiduCookie(testName, passWord);
-			System.out.println("baidu-cookies:");
-			System.out.println(bdCookies);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+/**
+ * @date 2016年11月30日 下午12:03:21
+ * @version
+ * @since JDK 1.8
+ */
+public class Cookie {
+    Map<String, String> cookies = new HashMap<String, String>();
+    
+    public void put(String key, String value) {
+        cookies.put(key, value);
+    }
+    
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        for(Entry<String, String> entry : cookies.entrySet()) {
+            sb.append(entry.getKey());
+            sb.append("=");
+            sb.append(entry.getValue());
+            sb.append(";");
+        }
+        return sb.toString();
+    }
+    
+    public String get(String key) {
+        return cookies.get(key);
+    }
 }

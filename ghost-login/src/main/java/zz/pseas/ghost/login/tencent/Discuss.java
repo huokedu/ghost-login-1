@@ -16,9 +16,12 @@
  *
  * 
  */
-/**   
-* @date 2016年9月14日 下午9:26:00 
-* @version   
-* @since JDK 1.8  
-*/
 package zz.pseas.ghost.login.tencent;
+/**
+ * @date 2016年11月30日 下午12:03:21
+ * @version
+ * @since JDK 1.8
+ */
+public class Discuss {
+
+}

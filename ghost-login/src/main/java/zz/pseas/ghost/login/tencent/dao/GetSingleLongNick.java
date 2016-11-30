@@ -1,5 +1,4 @@
-/**
- *
+/** 
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -15,29 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
+ * 
  */
-package zz.pseas.ghost.login.baidu;
+package zz.pseas.ghost.login.tencent.dao;
+/**
+ * @date 2016年11月30日 下午12:03:21
+ * @version
+ * @since JDK 1.8
+ */
+public class GetSingleLongNick {
+	String url = "http://s.web2.qq.com/api/get_single_long_nick2?";
+	String t, tuin, vfwebqq;
+	String Host = "s.web2.qq.com";
+	String Referer = "http://s.web2.qq.com/proxy.html?v=20130916001&callback=1&id=1";
+	String User_Agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:48.0) Gecko/20100101 Firefox/48.0";
+	// String response ="{"retcode":0,"result":[{"uin":3608780300,"lnick":""}]}";
 
-import java.io.IOException;
-
-import javax.swing.JOptionPane;
-/**   
-* @date 2016年9月14日 下午9:26:00 
-* @version   
-* @since JDK 1.8  
-*/
-public class BaiduLogInTest {
-
-	public static void main(String[] args) {
-		String testName = JOptionPane.showInputDialog("请输入用户名");
-		String passWord = JOptionPane.showInputDialog("请输入密码");
-		try {
-			String bdCookies = BaiduLogin.getBaiduCookie(testName, passWord);
-			System.out.println("baidu-cookies:");
-			System.out.println(bdCookies);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 }
