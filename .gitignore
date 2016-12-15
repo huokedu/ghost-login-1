@@ -7,6 +7,7 @@
 *.ear
 *.bak
 *.txt
+*.jpg
 
 
 .settings/
