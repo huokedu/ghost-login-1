@@ -1,6 +1,6 @@
 #Ghost-login
 ***
-> - 此处所说的模拟登录不是指利用个网站提供的认证接口登录，主要是自己分析前端代码，摸清登录的原理，然后程序模拟人类自动登录网站的过程；
+> - 此处所说的模拟登录不是指利用网站本身提供的认证API接口进行登录，主要是通过分析前端代码，摸清登录认证原理、核心加密代码，然后程序模拟，来实现自动登录网站的过程；
 > - 专门用来解决爬虫采集相关网站数据时模拟登录，验证码自动识别的问题；欢迎加入一起开发完善。
 > - Specifically designed to solve the crawler when collecting Internet web data who need to login the web-site by useing some  Simulated ways. The Ghost-login will verificate the captcha code automatically; Welcome to join in together to develop and improve it.
 
@@ -62,6 +62,7 @@
 * 2.[tigerxue](https://github.com/tigerxue)
 
 ## 交流讨论
-1. 开源网络爬虫QQ交流群:322937592
-2. Email address: liinux at qq.com
-3. 本项目会不断更新，欢迎提交有难度的登录网站；
+
+1. 本项目会不断更新，欢迎提交有难度的登录网站；
+2. 开源网络爬虫QQ交流群:322937592
+3. Email address: liinux at qq.com
