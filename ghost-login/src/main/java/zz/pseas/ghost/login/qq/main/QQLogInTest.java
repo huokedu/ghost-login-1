@@ -20,12 +20,19 @@ package zz.pseas.ghost.login.qq.main;
 
 import zz.pseas.ghost.login.qq.QQLogIn;
 
-/**
- */
+/**   
+* @date 2016年12月15日 下午10:36:34 
+* @version   
+* @since JDK 1.8  
+*/
 public class QQLogInTest {
 
 	public static void main(String[] args) {
-		QQLogIn qQLogIn = new QQLogIn("3475633727","jsk_001");
+		
+		String userName="";
+		String passWd="";
+		
+		QQLogIn qQLogIn = new QQLogIn(userName,passWd);
 		qQLogIn.login();                            //登录
 		System.out.println( qQLogIn.getCookie() ); //获取登录Cookie
 	}

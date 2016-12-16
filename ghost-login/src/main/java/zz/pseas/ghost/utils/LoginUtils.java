@@ -25,7 +25,11 @@ import java.util.Calendar;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.apache.commons.lang3.SystemUtils;
-
+/**   
+* @date 2016年12月15日 下午6:04:10 
+* @version   
+* @since JDK 1.8  
+*/
 
 public class LoginUtils {
 

@@ -27,7 +27,6 @@ import java.security.MessageDigest;
 /**
  * 采用MD5加密解密
  * 
- * @author tfq
  * @datetime 2011-10-13
  */
 public class MD5Util {

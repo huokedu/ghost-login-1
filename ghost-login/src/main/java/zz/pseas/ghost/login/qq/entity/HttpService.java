@@ -27,7 +27,11 @@ import java.util.List;
 import zz.pseas.ghost.login.qq.interfaced.SetHttpConnection;
 import zz.pseas.ghost.login.qq.util.HttpUtil;
 import zz.pseas.ghost.login.qq.util.SendRequestUtil;
-
+/**   
+* @date 2016年12月15日 下午10:36:34 
+* @version   
+* @since JDK 1.8  
+*/
 /**
  * Http请求服务类,提供简单的基本请求信息封装
  * 

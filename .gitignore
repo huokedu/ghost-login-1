@@ -8,7 +8,10 @@
 *.bak
 *.txt
 *.jpg
+*.xml
+*.sql
 
 
 .settings/
 target/
+temp/

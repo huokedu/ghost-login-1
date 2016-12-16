@@ -42,7 +42,11 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
 
 import zz.pseas.ghost.login.qq.interfaced.SetHttpConnection;
-
+/**   
+* @date 2016年12月15日 下午10:36:34 
+* @version   
+* @since JDK 1.8  
+*/
 /**
  * <p>
  * 发送请求工具类

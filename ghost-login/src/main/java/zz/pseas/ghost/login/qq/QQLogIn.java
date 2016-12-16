@@ -33,7 +33,11 @@ import zz.pseas.ghost.login.qq.util.GetMIMA;
 import zz.pseas.ghost.login.qq.util.RegexUtil;
 import zz.pseas.ghost.login.qq.util.Security;
 import zz.pseas.ghost.login.qq.util.Util;
-
+/**   
+* @date 2016年12月15日 下午10:36:34 
+* @version   
+* @since JDK 1.8  
+*/
 public class QQLogIn extends HttpService{
 	/** QQ帐号 **/
 	private String uin;
@@ -136,7 +140,7 @@ public class QQLogIn extends HttpService{
         	$url = Util.fillString($url, $uin, $aid, new Random().nextDouble()+"");
         	
         	this.requestDownload($url, Util.root+"\\verifyTemp\\"+captchaImgName);
-        	//不解释，控制台输入验证码，突然感觉自己好水。。。话又说回来，如果使用B/S架构，这里还要重构。。额，好吧。。。
+        	//不解释，控制台输入验证码，话又说回来，如果使用B/S架构，这里还要重构。。额，好吧。。。
     		Scanner scanner = new Scanner(System.in);
     		$verify = scanner.nextLine();
         }
