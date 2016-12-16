@@ -21,7 +21,7 @@
 6. **[新浪邮箱](http://mail.sina.com.cn/)(已实现)**
 7. **[QQ邮箱](https://mail.qq.com/cgi-bin/loginpage)(已实现)**
 8. **[豆瓣](https://accounts.douban.com/login?redir=https://m.douban.com/)(已实现)**
-9. ~~[淘宝](https://www.taobao.com/)(还有点问题)~~
+9. **[淘宝](https://www.taobao.com/)(已实现)**
 10. ~~[支付宝](https://www.alipay.com/)(还有点问题)~~
 
 
@@ -59,4 +59,5 @@
 
 ## 交流讨论
 1. 开源网络爬虫QQ交流群:322937592
-2. email address: liinux at qq.com
+2. Email address: liinux at qq.com
+3. 本项目会不断更新，欢迎提交有难度的登录网站；
