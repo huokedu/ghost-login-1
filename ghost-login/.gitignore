@@ -1,0 +1,20 @@
+*.class
+
+# Package Files #
+*.properties
+*.jar
+*.war
+*.ear
+*.bak
+*.txt
+*.jpg
+*.xml
+*.html
+*.js
+*.sql
+
+
+.settings/
+target/
+temp/
+logs/
