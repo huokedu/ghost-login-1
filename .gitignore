@@ -15,6 +15,6 @@
 
 
 .settings/
-target/
-temp/
-logs/
+*/target/
+*/temp/
+*/logs/
