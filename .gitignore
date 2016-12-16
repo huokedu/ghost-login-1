@@ -9,9 +9,12 @@
 *.txt
 *.jpg
 *.xml
+*.html
+*.js
 *.sql
 
 
 .settings/
 target/
 temp/
+logs/
