@@ -58,15 +58,14 @@
 3. 若第三者用此项目侵犯相关网站权益，一切责任自负；
 2. 若本项目侵犯相关网站、个人，组织机构权益，请及时联系；
 
-## 联系作者
-
-- [oschina](http://git.oschina.net/liinux)
-- [cnblogs](http://www.cnblogs.com/liinux)
-- [github](https://github.com/tigerxue)
-
-
 ## 交流讨论
 
 1. 本项目会不断更新，欢迎提交有难度的登录网站；
 2. 开源网络爬虫QQ交流群:322937592
 3. Email address: liinux at qq.com
+
+## 联系作者
+
+- [oschina](http://git.oschina.net/liinux)
+- [cnblogs](http://www.cnblogs.com/liinux)
+- [github](https://github.com/liinnux)
