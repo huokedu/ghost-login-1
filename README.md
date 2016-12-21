@@ -5,6 +5,7 @@
 > - Specifically designed to solve the crawler when collecting Internet web data who need to login the web-site by useing some  Simulated ways. The Ghost-login will verificate the captcha code automatically; Welcome to join in together to develop and improve it.
 
 ***
+---
 
 #主要基于以下第三方lib及技术 
 * 1. [httpclient](http://hc.apache.org/downloads.cgi) HTTP请求以及响应
@@ -15,18 +16,18 @@
 
 ##模拟登录一些常见的网站Done
 
-1. **[百度](https://www.baidu.com)(已实现)**
-2. **[知乎](https://www.zhihu.com/#signin)(已实现)**
-3. **[豆瓣](https://accounts.douban.com/login?redir=https://m.douban.com/)(已实现)**
-4. **[QQ微博](http://w.t.qq.com/touch) (已实现)**
-5. **[Sina微博](https://passport.weibo.cn/signin/login?entry=mweibo&res=wel&wm=3349&r=http%3A%2F%2Fm.weibo.cn%2F%3Fjumpfrom%3Dwapv4%26tip%3D1) (已经实现)**
-6. **[京东](http://www.jd.com/)(已实现)**
-7. **[淘宝](https://www.taobao.com/)(已实现)**
-8. **[新浪邮箱](http://mail.sina.com.cn/)(已实现)**
-9. **[QQ邮箱](https://mail.qq.com/cgi-bin/loginpage)(已实现)**
-10. ~~[126邮箱](http://smart.mail.126.com/?dv=smart)(还有点问题)~~
-11. ~~[163邮箱](http://smart.mail.163.com/?dv=smart)(还有点问题)~~
-12. ~~[支付宝](https://www.alipay.com/)(还有点问题)~~
+* [x] [百度](https://www.baidu.com)(已实现)
+* [x] [知乎](https://www.zhihu.com/#signin)(已实现)
+* [x] [豆瓣](https://accounts.douban.com/login?redir=https://m.douban.com/)(已实现)
+* [x] [QQ微博](http://w.t.qq.com/touch) (已实现)
+* [x] [Sina微博](https://passport.weibo.cn/signin/login?entry=mweibo&res=wel&wm=3349&r=http%3A%2F%2Fm.weibo.cn%2F%3Fjumpfrom%3Dwapv4%26tip%3D1) (已经实现)**
+* [x] [京东](http://www.jd.com/)(已实现)
+* [x] [淘宝](https://www.taobao.com/)(已实现)
+* [x] [新浪邮箱](http://mail.sina.com.cn/)(已实现)
+* [x] [QQ邮箱](https://mail.qq.com/cgi-bin/loginpage)(已实现)
+* [ ] [126邮箱](http://smart.mail.126.com/?dv=smart)(还有点问题)
+* [ ] [163邮箱](http://smart.mail.163.com/?dv=smart)(还有点问题)
+* [ ] [支付宝](https://www.alipay.com/)(还有点问题)
 
 
 ##Todolist
@@ -57,9 +58,12 @@
 3. 若第三者用此项目侵犯相关网站权益，一切责任自负；
 2. 若本项目侵犯相关网站、个人，组织机构权益，请及时联系；
 
-## 使用帮助
-* 1.[eliteqing](http://www.cnblogs.com/liinux)
-* 2.[tigerxue](https://github.com/tigerxue)
+## 联系作者
+
+- [oschina](http://git.oschina.net/liinux)
+- [cnblogs](http://www.cnblogs.com/liinux)
+- [github](https://github.com/tigerxue)
+
 
 ## 交流讨论
 
