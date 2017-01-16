@@ -18,16 +18,22 @@
  */
 package zz.pseas.ghost.login;
 
-import zz.pseas.ghost.client.GhostClient;
-/**   
-* @date 2016年11月30日 下午12:09:45 
-* @version   
-* @since JDK 1.8  
-*/
-public class ClientTest {
+import zz.pseas.ghost.login.email.Mail163Login;
+
+/**
+ * @date 2016年11月30日 下午12:09:45
+ * @version
+ * @since JDK 1.8
+ */
+public class Mail163LoginTest {
+
 	public static void main(String[] args) {
-		GhostClient client = new GhostClient();
-		String s = client.get("http://www.baidu.com");
-		System.out.println(s);
+		
+		String username = "test123@163.com";
+		String password = "test123";
+
+		String content = Mail163Login.login(username, password);
+
+		System.out.println(content);
 	}
 }

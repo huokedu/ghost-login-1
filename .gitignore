@@ -1,8 +1,7 @@
 *.class
 
 # Package Files #
-#*.properties
-#*.jar
+
 *.war
 *.ear
 *.bak

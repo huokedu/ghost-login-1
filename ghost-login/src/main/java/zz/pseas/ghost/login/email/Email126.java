@@ -16,18 +16,23 @@
  *
  * 
  */
-package zz.pseas.ghost.login;
+package zz.pseas.ghost.login.email;
 
-import zz.pseas.ghost.client.GhostClient;
 /**   
-* @date 2016年11月30日 下午12:09:45 
+* @date 2017年1月16日 下午12:21:58 
 * @version   
 * @since JDK 1.8  
 */
-public class ClientTest {
+public class Email126 {
+
+	/**  
+	 * @author Administrator  
+	 * @param args  
+	 * @since JDK 1.8  
+	 */
 	public static void main(String[] args) {
-		GhostClient client = new GhostClient();
-		String s = client.get("http://www.baidu.com");
-		System.out.println(s);
+		// TODO Auto-generated method stub
+
 	}
+
 }
