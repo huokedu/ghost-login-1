@@ -8,11 +8,11 @@
 ---
 
 #主要基于以下第三方lib及技术 
-* 1. [httpclient](http://hc.apache.org/downloads.cgi) HTTP请求以及响应
-* 2. [selenium](http://docs.seleniumhq.org/download/) 模拟自动登录
-* 3. [bouncycastle](http://www.bouncycastle.org/) 加密解密
-* 4. [tesseract-ocr](https://github.com/tesseract-ocr) 验证码Tesseract识别
-* 5. [captcha-Recognize](http://blog.csdn.net/problc/article/details/5794460)验证码LibSVM识别
+* 1. [HttpComponents 4.5.x](http://hc.apache.org/downloads.cgi) HTTP请求以及响应
+* 2. [Selenium 2.53.x](http://docs.seleniumhq.org/download/) 模拟自动登录
+* 3. [Bouncycastle](http://www.bouncycastle.org/) 加密解密
+* 4. [Tesseract-ocr](https://github.com/tesseract-ocr) 验证码Tesseract识别
+* 5. [Captcha-Recognize](http://blog.csdn.net/problc/article/details/5794460)验证码LibSVM识别
 
 ##模拟登录一些常见的网站Done
 
