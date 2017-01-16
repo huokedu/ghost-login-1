@@ -29,11 +29,15 @@ public class Email163LoginTest {
 
 	public static void main(String[] args) {
 		
-		String username = "test123@163.com";
-		String password = "test123";
+		//没有账号请先自己申请账号//
+		String username = "testtest@163.com";
+		String password = "testtest";
 
 		String content = Email163Login.login(username, password);
 
+
 		System.out.println(content);
+		
+		//输出 "msg":"S_OK" 则代表获取Cookie成功，以后即可利用此Cookie去模拟采集了//
 	}
 }
