@@ -47,7 +47,7 @@ import java.util.Scanner;
 /**
  * 模拟登录知乎
  */
-public class ZhiHuMain {
+public class ZhiHuMainLogin {
     //知乎首页
     final private static String INDEX_URL = "https://www.zhihu.com";
     //邮箱登录地址
@@ -63,7 +63,7 @@ public class ZhiHuMain {
     /**
      * 初始化CloseableHttpClient、HttpClientContext并设置Cookie策略
      */
-    public ZhiHuMain(){
+    public ZhiHuMainLogin(){
         RequestConfig globalConfig = RequestConfig.custom()
                 .setCookieSpec(CookieSpecs.BROWSER_COMPATIBILITY)
                 .build();
@@ -103,7 +103,7 @@ public class ZhiHuMain {
             request = new HttpPost(PHONENUM_LOGIN_URL);
             formParams.add(new BasicNameValuePair("phone_num", emailOrPhoneNum));
         }
-        yzm = yzm(httpClient, httpClientContext, YZM_URL);
+        yzm = zhCaptcha(httpClient, httpClientContext, YZM_URL);
         formParams.add(new BasicNameValuePair("captcha", yzm));
         formParams.add(new BasicNameValuePair("_xsrf", ""));//这个参数可以不用
         formParams.add(new BasicNameValuePair("password", pwd));
@@ -130,10 +130,10 @@ public class ZhiHuMain {
         }
     }
     /**
-     * 下载验证码至本地，并手动输入验证码
+     * 下载验证码至本地，并手动输入验证码//
      * @return
      */
-    public String yzm(CloseableHttpClient httpClient,HttpClientContext context, String url){
+    public String zhCaptcha(CloseableHttpClient httpClient,HttpClientContext context, String url){
         String verificationCodePath = System.getProperty("user.home");
         //下载验证码至本地
         HttpClientUtil.downloadFile(httpClient, context, url, verificationCodePath, "/yzm.jpg",true);
@@ -143,7 +143,7 @@ public class ZhiHuMain {
         return yzm;
     }
     public static void main(String[] args){
-        ZhiHuMain modelLogin = new ZhiHuMain();
+        ZhiHuMainLogin modelLogin = new ZhiHuMainLogin();
         modelLogin.login("邮箱或手机号码", "密码");
     }
 }

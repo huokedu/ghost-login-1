@@ -33,7 +33,8 @@ import com.squareup.okhttp.Response;
 * @version   
 * @since JDK 1.8  
 */
-public class SimulateLogin {
+public class ZhuSimulateLogin {
+	
 	public static String filePath = "zhihu.properties";	
 	public static String doLoginUrl = PropertieUtil.getValueByKey(filePath, "dologinUrl");
 	public static String loginPage = PropertieUtil.getValueByKey(filePath, "loginPage");

@@ -18,22 +18,22 @@
  */
 package zz.pseas.ghost.login;
 
-import zz.pseas.ghost.login.zhihu.SimulateLogin;
+import zz.pseas.ghost.login.zhihu.ZhuSimulateLogin;
 
 /**   
 * @date 2016年11月30日 下午12:09:45 
 * @version   
 * @since JDK 1.8  
 */
-public class ZhiHuTest {
+public class ZhiHuLoginTest {
 
 	/**  
 	 * @param args  
 	 * @since JDK 1.8  
 	 */
 	public static void main(String[] args) {
-		if(SimulateLogin.dataPreparation())
-			SimulateLogin.login();
+		if(ZhuSimulateLogin.dataPreparation())
+			ZhuSimulateLogin.login();
 		else
 			System.err.println("登陆数据准备失败");
 	}
