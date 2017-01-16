@@ -20,11 +20,11 @@ package zz.pseas.ghost.login;
 
 import zz.pseas.ghost.login.email.Email163Login;
 
-/**
- * @date 2016年11月30日 下午12:09:45
- * @version
- * @since JDK 1.8
- */
+/**   
+* @date 2017年1月16日 下午12:21:58 
+* @version   
+* @since JDK 1.8  
+*/
 public class Email163LoginTest {
 
 	public static void main(String[] args) {
@@ -35,9 +35,9 @@ public class Email163LoginTest {
 
 		String content = Email163Login.login(username, password);
 
-
+		//输出 "msg":"S_OK" 则代表获取Cookie成功，以后即可利用此Cookie去模拟采集了//
 		System.out.println(content);
 		
-		//输出 "msg":"S_OK" 则代表获取Cookie成功，以后即可利用此Cookie去模拟采集了//
+		
 	}
 }
