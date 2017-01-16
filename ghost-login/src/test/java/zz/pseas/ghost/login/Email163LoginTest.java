@@ -25,7 +25,7 @@ import zz.pseas.ghost.login.email.Email163Login;
  * @version
  * @since JDK 1.8
  */
-public class Mail163LoginTest {
+public class Email163LoginTest {
 
 	public static void main(String[] args) {
 		
