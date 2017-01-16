@@ -18,7 +18,7 @@
  */
 package zz.pseas.ghost.login;
 
-import zz.pseas.ghost.login.email.Mail163Login;
+import zz.pseas.ghost.login.email.Email163Login;
 
 /**
  * @date 2016年11月30日 下午12:09:45
@@ -32,7 +32,7 @@ public class Mail163LoginTest {
 		String username = "test123@163.com";
 		String password = "test123";
 
-		String content = Mail163Login.login(username, password);
+		String content = Email163Login.login(username, password);
 
 		System.out.println(content);
 	}

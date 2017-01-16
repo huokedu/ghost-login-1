@@ -23,7 +23,7 @@ package zz.pseas.ghost.login.email;
 * @version   
 * @since JDK 1.8  
 */
-public class Email126 {
+public class Email126Login {
 
 	/**  
 	 * @author Administrator  

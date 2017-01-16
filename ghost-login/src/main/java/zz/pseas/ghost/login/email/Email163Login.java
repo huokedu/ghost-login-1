@@ -35,7 +35,7 @@ import zz.pseas.ghost.utils.HttpResult;
 * @version   
 * @since JDK 1.8  
 */
-public class Mail163Login {
+public class Email163Login {
 	public static final String sessionInit = "http://email.163.com";
 	public static final String loginUrl = "https://mail.163.com/entry/cgi/ntesdoor?funcid=loginone&language=-1&passtype=1&iframe=1&product=mail163&from=web&df=email163&race=51_51_16_bj&module=&uid=qh4343222tuxizhen@163.com&style=-1&net=n&skinid=null";
 	// 联系人地址
