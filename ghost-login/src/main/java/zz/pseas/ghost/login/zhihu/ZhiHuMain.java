@@ -137,7 +137,7 @@ public class ZhiHuMain {
         String verificationCodePath = System.getProperty("user.home");
         //下载验证码至本地
         HttpClientUtil.downloadFile(httpClient, context, url, verificationCodePath, "/yzm.jpg",true);
-        System.out.println("请输入 " + verificationCodePath + "\\yzm.jpg 下的验证码：");
+        System.out.println("请输入 " + verificationCodePath + "\\zhihu_captcha01.jpg 下的验证码：");
         Scanner sc = new Scanner(System.in);
         String yzm = sc.nextLine();
         return yzm;

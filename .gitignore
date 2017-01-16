@@ -1,8 +1,8 @@
 *.class
 
 # Package Files #
-*.properties
-*.jar
+#*.properties
+#*.jar
 *.war
 *.ear
 *.bak
@@ -15,6 +15,6 @@
 
 
 .settings/
-*/target/
-*/temp/
-*/logs/
+target/
+temp/
+logs/
