@@ -10,6 +10,7 @@
 *.html
 *.js
 *.sql
+*.log
 
 
 .settings/
