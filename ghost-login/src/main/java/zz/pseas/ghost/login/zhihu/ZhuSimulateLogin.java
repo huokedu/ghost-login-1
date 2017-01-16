@@ -35,7 +35,7 @@ import com.squareup.okhttp.Response;
 */
 public class ZhuSimulateLogin {
 	
-	public static String filePath = "zhihu.properties";	
+	public static String filePath = "./src/main/resources/zhihu/zhihu.properties";	
 	public static String doLoginUrl = PropertieUtil.getValueByKey(filePath, "dologinUrl");
 	public static String loginPage = PropertieUtil.getValueByKey(filePath, "loginPage");
 

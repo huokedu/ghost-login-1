@@ -20,22 +20,26 @@ package zz.pseas.ghost.login;
 
 import zz.pseas.ghost.login.zhihu.ZhuSimulateLogin;
 
-/**   
-* @date 2016年11月30日 下午12:09:45 
-* @version   
-* @since JDK 1.8  
-*/
+/**
+ * @date 2016年11月30日 下午12:09:45
+ * @version
+ * @since JDK 1.8
+ */
 public class ZhiHuLoginTest {
 
-	/**  
-	 * @param args  
-	 * @since JDK 1.8  
+	/**
+	 * @param args
+	 * @since JDK 1.8
 	 */
 	public static void main(String[] args) {
-		if(ZhuSimulateLogin.dataPreparation())
+		
+		if (ZhuSimulateLogin.dataPreparation()) {
 			ZhuSimulateLogin.login();
-		else
+		}
+		else {
 			System.err.println("登陆数据准备失败");
+		}
+
 	}
 
 }
