@@ -141,8 +141,9 @@ public class GetJianDan {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
-			if(outStream!=null)
-				outStream.close();
+			if(outStream!=null) {
+                outStream.close();
+            }
 			if(inputStream!=null){
 				inputStream.close();
 			}

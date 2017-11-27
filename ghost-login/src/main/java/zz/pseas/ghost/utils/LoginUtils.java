@@ -70,8 +70,9 @@ public class LoginUtils {
 		}
 		randnum = tlr.nextInt(maxInternalTime) % (maxInternalTime - minInternalTime + 1) + minInternalTime;
 		//
-		if (randnum <= 0)
-			return;
+		if (randnum <= 0) {
+            return;
+        }
 		try {
 			Thread.sleep(randnum);
 			//Thread.currentThread().sleep(randnum);

@@ -77,7 +77,9 @@ public class HttpUtil {
 	 */
 	public static String formatCookie(List<String> lists){
 		if(null == lists || lists.size() < 1)             //如果集合存在
-			return "";                                    //返回""
+        {
+            return "";                                    //返回""
+        }
 		StringBuffer sb = new StringBuffer();
 		for(String str : lists){
 			sb.append( str+";;;" );
@@ -95,7 +97,9 @@ public class HttpUtil {
 	 */
 	public static String mergeCookies(String cookie, List<String> news){
 		if( null == news)   //如果没有新的Cookie，则使用之前的Cookie
-			return cookie;
+        {
+            return cookie;
+        }
 		
 		String[] vs = cookie.split(";");                 //获取新cookie设置的值
 		StringBuffer sb = new StringBuffer();
@@ -155,10 +159,14 @@ public class HttpUtil {
 	 */
 	public String getCookieString(HttpCookie[] httpCookies){
 		if( null == httpCookies || httpCookies.length < 1)                     //如果该对象没有Cookie
-			return "";                                                         //返回""
+        {
+            return "";                                                         //返回""
+        }
 		StringBuffer sb = new StringBuffer();                                  //创建拼接Cookie字符串
 		for( HttpCookie httpCookie : httpCookies )                             //遍历每一个Cookie
-			sb.append( httpCookie.getName()+"="+httpCookie.getValue()+",");    //拼接Cookie字符串
+        {
+            sb.append(httpCookie.getName() + "=" + httpCookie.getValue() + ",");    //拼接Cookie字符串
+        }
 		return sb.deleteCharAt(sb.length()-1).toString();                      //去掉末尾","并返回Cookie字符串
 	}
 	
@@ -175,8 +183,9 @@ public class HttpUtil {
 	public static String urlEncoder(String strUrl){
 		int place = strUrl.indexOf("?");              //寻找需要编译的参数部分
 		if( place < 1)                                //如果没有参数
-			return strUrl;                            //返回当前字符
-		else{
+        {
+            return strUrl;                            //返回当前字符
+        } else{
 			try {
 				return strUrl.replaceFirst("\\?.*$" , "?"+URLEncoder.encode( strUrl.replaceFirst("^.*?\\?", ""), "UTF-8") );
 			} catch (UnsupportedEncodingException e) {
@@ -249,14 +258,15 @@ public class HttpUtil {
 					}
 					sb.append( (char)value );
 				}else{
-					if(aChar == 't')
-						aChar ='\t';
-					else if(aChar == 'r')
-						aChar = '\r';
-					else if(aChar == 'n')
-						aChar = '\n';
-					else if(aChar == 'f')
-						aChar = '\f';
+					if(aChar == 't') {
+                        aChar = '\t';
+                    } else if(aChar == 'r') {
+                        aChar = '\r';
+                    } else if(aChar == 'n') {
+                        aChar = '\n';
+                    } else if(aChar == 'f') {
+                        aChar = '\f';
+                    }
 					sb.append( aChar );
 				}
 			}else{

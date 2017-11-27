@@ -18,16 +18,14 @@
  */
 package zz.pseas.ghost.browser;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import org.apache.commons.io.IOUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import zz.pseas.ghost.utils.StringUtil;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @date 2016年9月14日 下午9:26:00
@@ -36,7 +34,7 @@ import zz.pseas.ghost.utils.StringUtil;
  */
 public class DriverInitter {
 	public static void init() throws IOException {
-		InputStream in = new FileInputStream("dirver-config.xml");
+		InputStream in = DriverInitter.class.getResourceAsStream("/dirver-config.xml");
 		byte[] bytes = IOUtils.toByteArray(in);
 		String xml = new String(bytes, "utf-8");
 		Elements drivers = Jsoup.parse(xml).select("driver");

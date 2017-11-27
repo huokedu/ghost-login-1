@@ -244,13 +244,14 @@ public class GetLoginCookie {
     private Map<String, String> getCookie(Map<String, List<String>> m) {
         
         Map<String, String> map = new HashMap<String, String>();
-        if( m.get("Set-Cookie") != null)
-        for(String s : m.get("Set-Cookie")) {  
-            s = s.substring(0, s.indexOf(";"));
-            int index = s.indexOf("=");
-            String name = s.substring(0, index);
-            String value = s.substring(index + 1);
-            map.put(name, value);
+        if( m.get("Set-Cookie") != null) {
+            for (String s : m.get("Set-Cookie")) {
+                s = s.substring(0, s.indexOf(";"));
+                int index = s.indexOf("=");
+                String name = s.substring(0, index);
+                String value = s.substring(index + 1);
+                map.put(name, value);
+            }
         }
         return map;
     }

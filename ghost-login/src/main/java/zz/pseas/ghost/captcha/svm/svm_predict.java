@@ -71,15 +71,18 @@ public class svm_predict {
 				svm.svm_get_labels(model,labels);
 				prob_estimates = new double[nr_class];
 				output.writeBytes("labels");
-				for(int j=0;j<nr_class;j++)
-					output.writeBytes(" "+labels[j]);
+				for(int j=0;j<nr_class;j++) {
+					output.writeBytes(" " + labels[j]);
+				}
 				output.writeBytes("\n");
 			}
 		}
 		while(true)
 		{
 			String line = input.readLine();
-			if(line == null) break;
+			if(line == null) {
+				break;
+			}
 
 			StringTokenizer st = new StringTokenizer(line," \t\n\r\f:");
 
@@ -98,8 +101,9 @@ public class svm_predict {
 			{
 				v = svm.svm_predict_probability(model,x,prob_estimates);
 				output.writeBytes(v+" ");
-				for(int j=0;j<nr_class;j++)
-					output.writeBytes(prob_estimates[j]+" ");
+				for(int j=0;j<nr_class;j++) {
+					output.writeBytes(prob_estimates[j] + " ");
+				}
 				output.writeBytes("\n");
 			}
 			else
@@ -108,8 +112,9 @@ public class svm_predict {
 				output.writeBytes(v+"\n");
 			}
 
-			if(v == target)
+			if(v == target) {
 				++correct;
+			}
 			error += (v-target)*(v-target);
 			sumv += v;
 			sumy += target;
@@ -127,9 +132,9 @@ public class svm_predict {
 				 ((total*sumvv-sumv*sumv)*(total*sumyy-sumy*sumy))+
 				 " (regression)\n");
 		}
-		else
-			System.out.print("Accuracy = "+(double)correct/total*100+
-				 "% ("+correct+"/"+total+") (classification)\n");
+		else {
+			System.out.print("Accuracy = " + (double) correct / total * 100 + "% (" + correct + "/" + total + ") (classification)\n");
+		}
 	}
 
 	private static void exit_with_help()
@@ -147,7 +152,9 @@ public class svm_predict {
 		// parse options
 		for(i=0;i<argv.length;i++)
 		{
-			if(argv[i].charAt(0) != '-') break;
+			if(argv[i].charAt(0) != '-') {
+				break;
+			}
 			++i;
 			switch(argv[i-1].charAt(1))
 			{
@@ -159,8 +166,9 @@ public class svm_predict {
 					exit_with_help();
 			}
 		}
-		if(i>=argv.length-2)
+		if(i>=argv.length-2) {
 			exit_with_help();
+		}
 		try 
 		{
 			BufferedReader input = new BufferedReader(new FileReader(argv[i]));

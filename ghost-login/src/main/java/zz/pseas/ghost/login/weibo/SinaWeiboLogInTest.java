@@ -109,7 +109,8 @@ public class SinaWeiboLogInTest {
 		cookieStore = new BasicCookieStore();
 		CookieSpecProvider myCookie = new CookieSpecProvider() {
 
-			public CookieSpec create(HttpContext context) {
+			@Override
+            public CookieSpec create(HttpContext context) {
 				return new DefaultCookieSpec();
 			}
 		};

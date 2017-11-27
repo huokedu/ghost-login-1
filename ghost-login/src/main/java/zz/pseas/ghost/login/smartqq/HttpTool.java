@@ -43,8 +43,9 @@ public class HttpTool {
 			for(int j=0;j<he.length;j++)
 			{
 				String name=he[j].getName();
-				if(cookiename.equals(name))
-					return he[j].getValue();
+				if(cookiename.equals(name)) {
+                    return he[j].getValue();
+                }
 			}
 		}
 		return "";

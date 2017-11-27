@@ -56,8 +56,9 @@ public class FileUtil {
 		StringBuffer sb = new StringBuffer();
 		while (true) {
 			String s = r2.readLine();
-			if (s == null)
-				break;
+			if (s == null) {
+                break;
+            }
 			sb.append(s);
 		}
 		r2.close();

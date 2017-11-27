@@ -73,8 +73,9 @@ public class ImagePreProcess3 {
 			for (int x = (int) (1 + i * subWidth); x < (i + 1) * subWidth
 					&& x < width - 1; ++x) {
 				for (int y = 0; y < height; ++y) {
-					if (isWhite(img.getRGB(x, y)) == 1)
-						continue;
+					if (isWhite(img.getRGB(x, y)) == 1) {
+                        continue;
+                    }
 					if (map.containsKey(img.getRGB(x, y))) {
 						map.put(img.getRGB(x, y), map.get(img.getRGB(x, y)) + 1);
 					} else {
@@ -178,16 +179,18 @@ public class ImagePreProcess3 {
 		int min = width * height;
 		for (BufferedImage bi : map.keySet()) {
 			int count = 0;
-			if (Math.abs(bi.getWidth()-width) > 2)
-				continue;
+			if (Math.abs(bi.getWidth()-width) > 2) {
+                continue;
+            }
 			int widthmin = width < bi.getWidth() ? width : bi.getWidth();
 			int heightmin = height < bi.getHeight() ? height : bi.getHeight();
 			Label1: for (int x = 0; x < widthmin; ++x) {
 				for (int y = 0; y < heightmin; ++y) {
 					if (isBlack(img.getRGB(x, y)) != isBlack(bi.getRGB(x, y))) {
 						count++;
-						if (count >= min)
-							break Label1;
+						if (count >= min) {
+                            break Label1;
+                        }
 					}
 				}
 			}

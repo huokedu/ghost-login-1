@@ -57,8 +57,9 @@ public class ImagePreProcess5 {
 		FileOutputStream fs = new FileOutputStream(dataFile);
 		File[] files = dir.listFiles();
 		for (File file : files) {
-			if (!file.getName().endsWith(".jpg"))
-				continue;
+			if (!file.getName().endsWith(".jpg")) {
+                continue;
+            }
 			BufferedImage imgdest = ImageIO.read(file);
 			fs.write((file.getName().charAt(0) + " ").getBytes());
 			int index = 1;

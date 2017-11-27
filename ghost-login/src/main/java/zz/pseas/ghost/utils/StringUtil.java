@@ -31,8 +31,9 @@ import net.sf.json.JSONObject;
 */
 public class StringUtil {
 	public static boolean isEmpty(String str) {
-		if (str == null || str.trim().equals(""))
-			return true;
+		if (str == null || str.trim().equals("")) {
+            return true;
+        }
 		return false;
 	}
 
@@ -42,8 +43,9 @@ public class StringUtil {
 
 	public static String getJsonStr(JSONObject jso, String key) {
 		Object o = jso.get(key);
-		if (o != null)
-			return o.toString();
+		if (o != null) {
+            return o.toString();
+        }
 		return null;
 	}
 
@@ -51,8 +53,9 @@ public class StringUtil {
 		try {
 			JSONObject jso = JSONObject.fromObject(json);
 			Object o = jso.get(key);
-			if (o != null)
-				return o.toString();
+			if (o != null) {
+                return o.toString();
+            }
 			return null;
 		} catch (Exception e) {
 			return null;
@@ -98,8 +101,9 @@ public class StringUtil {
 	public static double findMax(List<Double> nums) {
 		double m = Double.MIN_VALUE;
 		for (Double x : nums) {
-			if (m < x)
-				m = x;
+			if (m < x) {
+                m = x;
+            }
 		}
 		return m;
 	}
@@ -107,8 +111,9 @@ public class StringUtil {
 	public static double findMin(List<Double> nums) {
 		double m = Double.MAX_VALUE;
 		for (Double x : nums) {
-			if (m > x)
-				m = x;
+			if (m > x) {
+                m = x;
+            }
 		}
 		return m;
 	}

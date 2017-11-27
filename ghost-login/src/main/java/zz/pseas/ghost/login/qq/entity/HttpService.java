@@ -81,12 +81,14 @@ public abstract class HttpService implements Serializable{
 		return SendRequestUtil.doRequest(urlStr, type, sc!=null?sc:new SetHttpConnection() {
 			
 			//@Override
-			public String before(HttpURLConnection httpConn) throws ProtocolException {
+			@Override
+            public String before(HttpURLConnection httpConn) throws ProtocolException {
 				return null;
 			}
 			
 			//@Override
-			public String after(HttpURLConnection httpConn) {
+			@Override
+            public String after(HttpURLConnection httpConn) {
 				List<String> lists = httpConn.getHeaderFields().get("Set-Cookie");
 				cookie = HttpUtil.mergeCookies(cookie, lists);
 				return cookie;
@@ -129,12 +131,14 @@ public abstract class HttpService implements Serializable{
 		SendRequestUtil.httpDownload(url, outPath, sc!=null?sc:new SetHttpConnection() {
 			
 			//@Override
-			public String before(HttpURLConnection httpConn) throws ProtocolException {
+			@Override
+            public String before(HttpURLConnection httpConn) throws ProtocolException {
 				return null;
 			}
 			
 			//@Override
-			public String after(HttpURLConnection httpConn) {
+			@Override
+            public String after(HttpURLConnection httpConn) {
 				List<String> lists = httpConn.getHeaderFields().get("Set-Cookie");
 				cookie = HttpUtil.mergeCookies(cookie, lists);
 				return cookie;

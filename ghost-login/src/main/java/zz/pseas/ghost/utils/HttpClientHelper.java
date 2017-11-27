@@ -77,13 +77,16 @@ public class HttpClientHelper {
 			try {
 				X509TrustManager tm = new X509TrustManager() {
 
-					public void checkClientTrusted(X509Certificate[] xcs, String string) throws CertificateException {
+					@Override
+                    public void checkClientTrusted(X509Certificate[] xcs, String string) throws CertificateException {
 					}
 
-					public void checkServerTrusted(X509Certificate[] xcs, String string) throws CertificateException {
+					@Override
+                    public void checkServerTrusted(X509Certificate[] xcs, String string) throws CertificateException {
 					}
 
-					public X509Certificate[] getAcceptedIssuers() {
+					@Override
+                    public X509Certificate[] getAcceptedIssuers() {
 						return null;
 					}
 				};

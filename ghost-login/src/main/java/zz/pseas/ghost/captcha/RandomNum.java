@@ -51,8 +51,9 @@ public class RandomNum {
 			Integer data = pailie.get(randint);
 			sb.append(data.toString() + "\n");
 			pailie.remove(randint);
-			if (i % 1000 == 0)
-				System.out.println(i);
+			if (i % 1000 == 0) {
+                System.out.println(i);
+            }
 		}
 		fs.write(sb.toString().getBytes());
 		fs.close();

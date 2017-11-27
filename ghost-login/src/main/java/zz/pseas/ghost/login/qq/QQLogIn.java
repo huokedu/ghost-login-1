@@ -177,10 +177,11 @@ public class QQLogIn extends HttpService{
 		this.g_tk = Security.GetG_TK( RegexUtil.replaceStartEnd(this.getCookie(), "skey=", ";") );
 		
 		//6.设置登录状态
-		if("0".equals($status))
-    		this.status = 0;
-    	else
-    		this.status = -1;
+		if("0".equals($status)) {
+            this.status = 0;
+        } else {
+            this.status = -1;
+        }
 		
 		return this.status;
 	}
@@ -196,7 +197,9 @@ public class QQLogIn extends HttpService{
 	 * 
 	 */
 	public void praise(String curkey){
-		if(this.status != 0) return;
+		if(this.status != 0) {
+            return;
+        }
 		String $url = "http://w.qzone.qq.com/cgi-bin/likes/internal_dolike_app?g_tk="+this.g_tk;
 		String $data = "fid={0}&opuin={1}&abstime=1383191804&active=0&appid=311&curkey=http://user.qzone.qq.com/448163451/mood/{0}&qzreferrer=http://user.qzone.qq.com/{1}&typeid=0&unikey=http://user.qzone.qq.com/448163451/mood/{0}";
 		

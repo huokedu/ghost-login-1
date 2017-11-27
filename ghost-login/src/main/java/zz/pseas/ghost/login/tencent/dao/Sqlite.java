@@ -32,7 +32,8 @@ public class Sqlite extends AbstractDataBase {
 	Connection con;
 	Statement stmt;
 
-	public void connect() {
+	@Override
+    public void connect() {
 		try {
 			Class.forName("org.sqlite.JDBC");
 		} catch (ClassNotFoundException e) {
@@ -41,7 +42,8 @@ public class Sqlite extends AbstractDataBase {
 		}
 	}
 
-	public void creatDB(String name) {
+	@Override
+    public void creatDB(String name) {
 		try {
 			con = DriverManager.getConnection("jdbc:sqlite:" + name);
 			stmt = con.createStatement();
@@ -51,7 +53,8 @@ public class Sqlite extends AbstractDataBase {
 		}
 	}
 
-	public void selectDB(String name) {
+	@Override
+    public void selectDB(String name) {
 		try {
 			con = DriverManager.getConnection("jdbc:sqlite:" + name + ".db");
 			stmt = con.createStatement();
@@ -90,7 +93,8 @@ public class Sqlite extends AbstractDataBase {
 
 	}
 
-	public void executeUpdata(String sql) {
+	@Override
+    public void executeUpdata(String sql) {
 		try {
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
@@ -99,7 +103,8 @@ public class Sqlite extends AbstractDataBase {
 		}
 	}
 
-	public ResultSet executeQuery(String sql) {
+	@Override
+    public ResultSet executeQuery(String sql) {
 
 		try {
 			return stmt.executeQuery(sql);
@@ -110,7 +115,8 @@ public class Sqlite extends AbstractDataBase {
 		return null;
 	}
 
-	public void commit() {
+	@Override
+    public void commit() {
 		try {
 			con.commit();
 		} catch (SQLException e) {
@@ -119,7 +125,8 @@ public class Sqlite extends AbstractDataBase {
 		}
 	}
 
-	public void close() {
+	@Override
+    public void close() {
 		try {
 			con.close();
 		} catch (SQLException e) {

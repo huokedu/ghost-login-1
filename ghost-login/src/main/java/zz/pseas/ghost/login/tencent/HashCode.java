@@ -36,7 +36,9 @@ public class HashCode {
         v[3] = (int)(selfUin & 255 ^ (int) u[1].charAt(1));
         
         int [] ui = new int [8];
-        for( int t = 0; t < 8; t++) ui[t] = t % 2 == 0? n[t >> 1] : v[t >> 1];
+        for( int t = 0; t < 8; t++) {
+            ui[t] = t % 2 == 0 ? n[t >> 1] : v[t >> 1];
+        }
         char[] hex = new char[] {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
         String hash = "";
         for( int t = 0; t < ui.length; t++) {

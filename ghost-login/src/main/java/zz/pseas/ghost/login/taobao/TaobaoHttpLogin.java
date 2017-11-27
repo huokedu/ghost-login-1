@@ -74,8 +74,9 @@ public class TaobaoHttpLogin {
 			try {
 				sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
 					//信任所有
-					public boolean isTrusted(X509Certificate[] chain,
-							String authType) throws CertificateException {
+					@Override
+                    public boolean isTrusted(X509Certificate[] chain,
+                                             String authType) throws CertificateException {
 						return true;
 					}
 				}).build();

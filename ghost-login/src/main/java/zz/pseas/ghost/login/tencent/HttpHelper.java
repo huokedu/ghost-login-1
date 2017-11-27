@@ -25,7 +25,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,7 +61,7 @@ public class HttpHelper {
     }
     
     public void setReferer(String referer) {
-        this.referer = referer;
+        HttpHelper.referer = referer;
     }
     
     public void setParam(String [] param) {
@@ -97,10 +96,12 @@ public class HttpHelper {
             HttpURLConnection http = (HttpURLConnection) con;
             http.setInstanceFollowRedirects(true);
             
-            if(cookie != null)
+            if(cookie != null) {
                 http.setRequestProperty("Cookie", cookie);
-            if(referer != null) 
+            }
+            if(referer != null) {
                 http.setRequestProperty("Referer", referer);
+            }
             
             BufferedReader input = new BufferedReader(new InputStreamReader(http.getInputStream()));
             StringBuffer sb = new StringBuffer();
@@ -154,10 +155,12 @@ public class HttpHelper {
             HttpURLConnection http = (HttpURLConnection) con;
             http.setInstanceFollowRedirects(true);
             
-            if(cookie != null)
+            if(cookie != null) {
                 http.setRequestProperty("Cookie", cookie);
-            if(referer != null) 
+            }
+            if(referer != null) {
                 http.setRequestProperty("Referer", referer);
+            }
             
             BufferedReader input = new BufferedReader(new InputStreamReader(http.getInputStream()));
             StringBuffer sb = new StringBuffer();

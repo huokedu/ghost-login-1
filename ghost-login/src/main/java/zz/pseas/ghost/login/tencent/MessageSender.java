@@ -60,7 +60,8 @@ public class MessageSender {
 			this.type = type;
 		}
 
-		public void run() {
+		@Override
+        public void run() {
 			String param;
 			String url;
 			String psessionid = cookie.get("psessionid");

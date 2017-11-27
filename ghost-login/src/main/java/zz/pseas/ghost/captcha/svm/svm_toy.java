@@ -128,38 +128,44 @@ public class svm_toy extends Applet {
 		this.add(p, BorderLayout.SOUTH);
 
 		button_change.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			@Override
+            public void actionPerformed(ActionEvent e) {
 				button_change_clicked();
 				button_change.setBackground(colors[current_value]);
 			}
 		});
 
 		button_run.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			@Override
+            public void actionPerformed(ActionEvent e) {
 				button_run_clicked(input_line.getText());
 			}
 		});
 
 		button_clear.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			@Override
+            public void actionPerformed(ActionEvent e) {
 				button_clear_clicked();
 			}
 		});
 
 		button_save.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			@Override
+            public void actionPerformed(ActionEvent e) {
 				button_save_clicked();
 			}
 		});
 
 		button_load.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			@Override
+            public void actionPerformed(ActionEvent e) {
 				button_load_clicked();
 			}
 		});
 
 		input_line.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			@Override
+            public void actionPerformed(ActionEvent e) {
 				button_run_clicked(input_line.getText());
 			}
 		});
@@ -188,14 +194,16 @@ public class svm_toy extends Applet {
 
 	void draw_all_points() {
 		int n = point_list.size();
-		for (int i = 0; i < n; i++)
-			draw_point(point_list.elementAt(i));
+		for (int i = 0; i < n; i++) {
+            draw_point(point_list.elementAt(i));
+        }
 	}
 
 	void button_change_clicked() {
 		++current_value;
-		if (current_value > 3)
-			current_value = 1;
+		if (current_value > 3) {
+            current_value = 1;
+        }
 	}
 
 	private static double atof(String s) {
@@ -208,8 +216,9 @@ public class svm_toy extends Applet {
 
 	void button_run_clicked(String args) {
 		// guard
-		if (point_list.isEmpty())
-			return;
+		if (point_list.isEmpty()) {
+            return;
+        }
 
 		svm_parameter param = new svm_parameter();
 
@@ -233,12 +242,14 @@ public class svm_toy extends Applet {
 		// parse options
 		StringTokenizer st = new StringTokenizer(args);
 		String[] argv = new String[st.countTokens()];
-		for (int i = 0; i < argv.length; i++)
-			argv[i] = st.nextToken();
+		for (int i = 0; i < argv.length; i++) {
+            argv[i] = st.nextToken();
+        }
 
 		for (int i = 0; i < argv.length; i++) {
-			if (argv[i].charAt(0) != '-')
-				break;
+			if (argv[i].charAt(0) != '-') {
+                break;
+            }
 			if (++i >= argv.length) {
 				System.err.print("unknown option\n");
 				break;
@@ -308,8 +319,9 @@ public class svm_toy extends Applet {
 
 		if (param.kernel_type == svm_parameter.PRECOMPUTED) {
 		} else if (param.svm_type == svm_parameter.EPSILON_SVR || param.svm_type == svm_parameter.NU_SVR) {
-			if (param.gamma == 0)
-				param.gamma = 1;
+			if (param.gamma == 0) {
+                param.gamma = 1;
+            }
 			prob.x = new svm_node[prob.l][1];
 			for (int i = 0; i < prob.l; i++) {
 				point p = point_list.elementAt(i);
@@ -362,8 +374,9 @@ public class svm_toy extends Applet {
 				}
 			}
 		} else {
-			if (param.gamma == 0)
-				param.gamma = 0.5;
+			if (param.gamma == 0) {
+                param.gamma = 0.5;
+            }
 			prob.x = new svm_node[prob.l][2];
 			for (int i = 0; i < prob.l; i++) {
 				point p = point_list.elementAt(i);
@@ -385,18 +398,20 @@ public class svm_toy extends Applet {
 			x[1].index = 2;
 
 			Graphics window_gc = getGraphics();
-			for (int i = 0; i < XLEN; i++)
-				for (int j = 0; j < YLEN; j++) {
-					x[0].value = (double) i / XLEN;
-					x[1].value = (double) j / YLEN;
-					double d = svm.svm_predict(model, x);
-					if (param.svm_type == svm_parameter.ONE_CLASS && d < 0)
-						d = 2;
-					buffer_gc.setColor(colors[(int) d]);
-					window_gc.setColor(colors[(int) d]);
-					buffer_gc.drawLine(i, j, i, j);
-					window_gc.drawLine(i, j, i, j);
-				}
+			for (int i = 0; i < XLEN; i++) {
+                for (int j = 0; j < YLEN; j++) {
+                    x[0].value = (double) i / XLEN;
+                    x[1].value = (double) j / YLEN;
+                    double d = svm.svm_predict(model, x);
+                    if (param.svm_type == svm_parameter.ONE_CLASS && d < 0) {
+                        d = 2;
+                    }
+                    buffer_gc.setColor(colors[(int) d]);
+                    window_gc.setColor(colors[(int) d]);
+                    buffer_gc.drawLine(i, j, i, j);
+                    window_gc.drawLine(i, j, i, j);
+                }
+            }
 		}
 
 		draw_all_points();
@@ -410,8 +425,9 @@ public class svm_toy extends Applet {
 		FileDialog dialog = new FileDialog(new Frame(), "Save", FileDialog.SAVE);
 		dialog.setVisible(true);
 		String filename = dialog.getFile();
-		if (filename == null)
-			return;
+		if (filename == null) {
+            return;
+        }
 		try {
 			DataOutputStream fp = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(filename)));
 			int n = point_list.size();
@@ -429,8 +445,9 @@ public class svm_toy extends Applet {
 		FileDialog dialog = new FileDialog(new Frame(), "Load", FileDialog.LOAD);
 		dialog.setVisible(true);
 		String filename = dialog.getFile();
-		if (filename == null)
-			return;
+		if (filename == null) {
+            return;
+        }
 		clear_all();
 		try {
 			BufferedReader fp = new BufferedReader(new FileReader(filename));
@@ -454,8 +471,9 @@ public class svm_toy extends Applet {
 	@Override
 	protected void processMouseEvent(MouseEvent e) {
 		if (e.getID() == MouseEvent.MOUSE_PRESSED) {
-			if (e.getX() >= XLEN || e.getY() >= YLEN)
-				return;
+			if (e.getX() >= XLEN || e.getY() >= YLEN) {
+                return;
+            }
 			point p = new point((double) e.getX() / XLEN, (double) e.getY() / YLEN, current_value);
 			point_list.addElement(p);
 			draw_point(p);

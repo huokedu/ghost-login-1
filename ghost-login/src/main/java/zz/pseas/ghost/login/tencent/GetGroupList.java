@@ -18,6 +18,10 @@
  */
 package zz.pseas.ghost.login.tencent;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -29,9 +33,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 /**
  * @date 2016年11月30日 下午12:03:21
  * @version
@@ -57,8 +58,9 @@ public class GetGroupList {
 
 			http.setRequestProperty("cookie", cookie.toString());
 
-			if (referer != null)
+			if (referer != null) {
 				http.setRequestProperty("Referer", referer);
+			}
 			http.setRequestProperty("Origin", "http://s.web2.qq.com");
 			http.setRequestProperty("Host", "s.web2.qq.com");
 			http.setRequestProperty("User-Agent",
@@ -101,15 +103,18 @@ public class GetGroupList {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
 		}
 	} // getHtmlRespon
 
-	public List<Group> getGroupList() {
+	public List<Group> getGroupList() throws JSONException {
 		List<Group> grouplist = new ArrayList();
 		getHtmlRespon();
 		int returnCode = responsedJson.getInt("retcode");
-		if (returnCode != 0)
+		if (returnCode != 0) {
 			return null;
+		}
 
 		JSONObject result = responsedJson.getJSONObject("result");
 

@@ -18,16 +18,15 @@
  */
 package zz.pseas.ghost.login.zhihu;
 
-import java.io.IOException;
-import java.util.Map;
-import java.util.Scanner;
-
-import org.jsoup.helper.StringUtil;
-
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
+import org.jsoup.helper.StringUtil;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Scanner;
 /**   
 * @date 2016年11月30日 下午12:09:45 
 * @version   
@@ -35,13 +34,14 @@ import com.squareup.okhttp.Response;
 */
 public class ZhuSimulateLogin {
 	
-	public static String filePath = "./src/main/resources/zhihu/zhihu.properties";	
+	public static String filePath = "/zhihu/zhihu.properties";
 	public static String doLoginUrl = PropertieUtil.getValueByKey(filePath, "dologinUrl");
 	public static String loginPage = PropertieUtil.getValueByKey(filePath, "loginPage");
 
 	public static boolean dataPreparation(){
-		if(!isBaseConfigRight())
-			return false;
+		if(!isBaseConfigRight()) {
+            return false;
+        }
 		
 		String pageContent = GetPageHtml.getPageHtml(loginPage);
 		
@@ -85,8 +85,9 @@ public class ZhuSimulateLogin {
 				System.err.println("验证码值准备失败");
 			}
 		}
-		else
-			System.out.println("没有验证码属性，最终提交数据将不含验证码");
+		else {
+            System.out.println("没有验证码属性，最终提交数据将不含验证码");
+        }
 		
 		return true;
 	}

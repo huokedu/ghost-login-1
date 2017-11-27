@@ -48,7 +48,8 @@ public class svm_train {
 	private static svm_print_interface svm_print_null = new svm_print_interface()
 	{
 		//@Override
-		public void print(String s) {}
+		@Override
+        public void print(String s) {}
 	};
 
 	private static void exit_with_help()
@@ -116,9 +117,11 @@ public class svm_train {
 		}
 		else
 		{
-			for(i=0;i<prob.l;i++)
-				if(target[i] == prob.y[i])
-					++total_correct;
+			for(i=0;i<prob.l;i++) {
+                if (target[i] == prob.y[i]) {
+                    ++total_correct;
+                }
+            }
 			System.out.print("Cross Validation Accuracy = "+100.0*total_correct/prob.l+"%\n");
 		}
 	}
@@ -195,9 +198,12 @@ public class svm_train {
 		// parse options
 		for(i=0;i<argv.length;i++)
 		{
-			if(argv[i].charAt(0) != '-') break;
-			if(++i>=argv.length)
-				exit_with_help();
+			if(argv[i].charAt(0) != '-') {
+                break;
+            }
+			if(++i>=argv.length) {
+                exit_with_help();
+            }
 			switch(argv[i-1].charAt(1))
 			{
 				case 's':
@@ -276,14 +282,15 @@ public class svm_train {
 
 		// determine filenames
 
-		if(i>=argv.length)
-			exit_with_help();
+		if(i>=argv.length) {
+            exit_with_help();
+        }
 
 		input_file_name = argv[i];
 
-		if(i<argv.length-1)
-			model_file_name = argv[i+1];
-		else
+		if(i<argv.length-1) {
+            model_file_name = argv[i + 1];
+        } else
 		{
 			int p = argv[i].lastIndexOf('/');
 			++p;	// whew...
@@ -303,7 +310,9 @@ public class svm_train {
 		while(true)
 		{
 			String line = fp.readLine();
-			if(line == null) break;
+			if(line == null) {
+                break;
+            }
 
 			StringTokenizer st = new StringTokenizer(line," \t\n\r\f:");
 
@@ -316,36 +325,39 @@ public class svm_train {
 				x[j].index = atoi(st.nextToken());
 				x[j].value = atof(st.nextToken());
 			}
-			if(m>0) max_index = Math.max(max_index, x[m-1].index);
+			if(m>0) {
+                max_index = Math.max(max_index, x[m - 1].index);
+            }
 			vx.addElement(x);
 		}
 
 		prob = new svm_problem();
 		prob.l = vy.size();
 		prob.x = new svm_node[prob.l][];
-		for(int i=0;i<prob.l;i++)
-			prob.x[i] = vx.elementAt(i);
+		for(int i=0;i<prob.l;i++) {
+            prob.x[i] = vx.elementAt(i);
+        }
 		prob.y = new double[prob.l];
-		for(int i=0;i<prob.l;i++)
-			prob.y[i] = vy.elementAt(i);
+		for(int i=0;i<prob.l;i++) {
+            prob.y[i] = vy.elementAt(i);
+        }
 
-		if(param.gamma == 0 && max_index > 0)
-			param.gamma = 1.0/max_index;
+		if(param.gamma == 0 && max_index > 0) {
+            param.gamma = 1.0 / max_index;
+        }
 
-		if(param.kernel_type == svm_parameter.PRECOMPUTED)
-			for(int i=0;i<prob.l;i++)
-			{
-				if (prob.x[i][0].index != 0)
-				{
-					System.err.print("Wrong kernel matrix: first column must be 0:sample_serial_number\n");
-					System.exit(1);
-				}
-				if ((int)prob.x[i][0].value <= 0 || (int)prob.x[i][0].value > max_index)
-				{
-					System.err.print("Wrong input format: sample_serial_number out of range\n");
-					System.exit(1);
-				}
-			}
+		if(param.kernel_type == svm_parameter.PRECOMPUTED) {
+            for (int i = 0; i < prob.l; i++) {
+                if (prob.x[i][0].index != 0) {
+                    System.err.print("Wrong kernel matrix: first column must be 0:sample_serial_number\n");
+                    System.exit(1);
+                }
+                if ((int) prob.x[i][0].value <= 0 || (int) prob.x[i][0].value > max_index) {
+                    System.err.print("Wrong input format: sample_serial_number out of range\n");
+                    System.exit(1);
+                }
+            }
+        }
 
 		fp.close();
 	}

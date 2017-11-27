@@ -125,19 +125,22 @@ public class SendRequestUtil {
 	static class myX509TrustManager implements X509TrustManager {
 
 		//@Override
-		public void checkClientTrusted(X509Certificate[] chain, String authType)
+		@Override
+        public void checkClientTrusted(X509Certificate[] chain, String authType)
 				throws CertificateException {
 			// 检查客户端信任
 		}
 
 		//@Override
-		public void checkServerTrusted(X509Certificate[] chain, String authType)
+		@Override
+        public void checkServerTrusted(X509Certificate[] chain, String authType)
 				throws CertificateException {
 			// 检查服务器信任
 		}
 
 		//@Override
-		public X509Certificate[] getAcceptedIssuers() {
+		@Override
+        public X509Certificate[] getAcceptedIssuers() {
 			// 得到请求ISS
 			return null;
 		}
@@ -148,7 +151,8 @@ public class SendRequestUtil {
 	 **/
 	static class myHostnameVerifier implements HostnameVerifier {
 		//@Override
-		public boolean verify(String hostname, SSLSession session) {
+		@Override
+        public boolean verify(String hostname, SSLSession session) {
 //			System.out.println("Warning: URL Host: " + hostname + " vs. "
 //					+ session.getPeerHost());
 			return true;
@@ -183,22 +187,26 @@ public class SendRequestUtil {
 		try {
 			url = new URL(urlStr);
 			//如果需要代理
-			if( null != proxy)
-				rulConnection = url.openConnection(proxy);
-			else
-				rulConnection = url.openConnection();
+			if( null != proxy) {
+                rulConnection = url.openConnection(proxy);
+            } else {
+                rulConnection = url.openConnection();
+            }
 			
 			if(urlStr.toLowerCase().indexOf("https") == 0){        //如果是Https请求，更改httpss=https 2013年7月24日 09:51:53
 				httpUrlConnection = (HttpsURLConnection) rulConnection;
 			}else                                                  //如果是Http请求
-				httpUrlConnection = (HttpURLConnection) rulConnection;
+            {
+                httpUrlConnection = (HttpURLConnection) rulConnection;
+            }
 				
 
 			// 设置是否向httpUrlConnection输出，因为这个是post请求，参数要放在
 			// http正文内，因此需要设为true, 默认情况下是false;
 			//如果是Post请求
-			if(type.equalsIgnoreCase("post"))
-				httpUrlConnection.setDoOutput(true);
+			if(type.equalsIgnoreCase("post")) {
+                httpUrlConnection.setDoOutput(true);
+            }
 
 			// 设置是否从httpUrlConnection读入，默认情况下是true;
 			httpUrlConnection.setDoInput(true);
@@ -215,8 +223,9 @@ public class SendRequestUtil {
 				httpUrlConnection.setRequestProperty("Content-Length","1024");
 			}
 			//如果有Cookie
-			if(null != cookie)
-				httpUrlConnection.setRequestProperty("Cookie",cookie);
+			if(null != cookie) {
+                httpUrlConnection.setRequestProperty("Cookie", cookie);
+            }
 			if (null != sc) {
 				sc.before(httpUrlConnection);
 			}
@@ -294,8 +303,9 @@ public class SendRequestUtil {
 			e.printStackTrace();
 		} finally{
 				try {
-					if(null != br)
-						br.close();
+					if(null != br) {
+                        br.close();
+                    }
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -334,15 +344,18 @@ public class SendRequestUtil {
 			url = new URL(urlStr);
 
 			//如果果需要代理
-			if( null != proxy)
-				rulConnection = url.openConnection(proxy);
-			else
-				rulConnection = url.openConnection();
+			if( null != proxy) {
+                rulConnection = url.openConnection(proxy);
+            } else {
+                rulConnection = url.openConnection();
+            }
 
 			if(urlStr.toLowerCase().indexOf("https") == 0){
 				httpConn = (HttpsURLConnection) rulConnection;
 			}else                                                  //如果是Http请求
-				httpConn = (HttpURLConnection) rulConnection;
+            {
+                httpConn = (HttpURLConnection) rulConnection;
+            }
 
 			HttpURLConnection.setFollowRedirects(true); // 设置为重定向
 
@@ -362,8 +375,9 @@ public class SendRequestUtil {
 				sc.before(httpConn);
 			}
 			
-			if( httpConn.getResponseCode()==404 )
-				return;
+			if( httpConn.getResponseCode()==404 ) {
+                return;
+            }
 			
 			in = httpConn.getInputStream(); // 接收数据
 			out = new FileOutputStream(new File(outPath)); // 创建本地输出文件
@@ -394,10 +408,12 @@ public class SendRequestUtil {
 					out.flush();
 					out.close(); // 关闭输出流
 				}
-				if(in != null)
-					in.close(); // 关闭输入流
-				if(httpConn != null)
-					httpConn.disconnect(); // 关闭连接
+				if(in != null) {
+                    in.close(); // 关闭输入流
+                }
+				if(httpConn != null) {
+                    httpConn.disconnect(); // 关闭连接
+                }
 			} catch (Exception ex) {
 
 				ex.printStackTrace();

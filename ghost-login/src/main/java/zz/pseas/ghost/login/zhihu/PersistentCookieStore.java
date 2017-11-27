@@ -18,6 +18,10 @@
  */
 package zz.pseas.ghost.login.zhihu;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -38,10 +42,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 /**   
 * @date 2016年11月30日 下午12:09:45 
 * @version   
@@ -77,8 +77,9 @@ public class PersistentCookieStore implements CookieStore {
                     if (encodedCookie != null) {
                         HttpCookie decodedCookie = decodeCookie(encodedCookie);
                         if (decodedCookie != null) {
-                            if(!cookies.containsKey(entry.getKey()))
+                            if(!cookies.containsKey(entry.getKey())) {
                                 cookies.put(entry.getKey(), new ConcurrentHashMap<String, HttpCookie>());
+                            }
                             cookies.get(entry.getKey()).put(name, decodedCookie);
                             //System.err.println("key---"+entry.getKey()+"  decoded---"+decodedCookie);
                         }
@@ -89,17 +90,20 @@ public class PersistentCookieStore implements CookieStore {
         }
     }
 
+    @Override
     public void add(URI uri, HttpCookie cookie) {
         String name = getCookieToken(uri, cookie);
 
         // Save cookie into local store, or remove if expired
         if (!cookie.hasExpired()) {
-            if(!cookies.containsKey(uri.getHost()))
+            if(!cookies.containsKey(uri.getHost())) {
                 cookies.put(uri.getHost(), new ConcurrentHashMap<String, HttpCookie>());
+            }
             cookies.get(uri.getHost()).put(name, cookie);
         } else {
-            if(cookies.containsKey(uri.toString()))
+            if(cookies.containsKey(uri.toString())) {
                 cookies.get(uri.getHost()).remove(name);
+            }
         }
         
        /* System.err.println("add函数，put方法  --uri.getHost---"+uri.getHost()+"   keySet---"+ cookies.get(uri.getHost()).keySet()+"encodeCookie   "
@@ -110,8 +114,9 @@ public class PersistentCookieStore implements CookieStore {
         cookiePrefs.put(COOKIE_NAME_PREFIX + name, encodeCookie(new SerializableHttpCookie(cookie)));
         
          try {
-        	 if(PropertieUtil.createPropertiesIfNotExist(uri.getHost()+".cookie.properties"))
-        		 PropertieUtil.writeProperties(uri.getHost()+".cookie.properties", cookie.getName(), cookie.getValue());
+        	 if(PropertieUtil.createPropertiesIfNotExist(uri.getHost()+".cookie.properties")) {
+                 PropertieUtil.writeProperties(uri.getHost() + ".cookie.properties", cookie.getName(), cookie.getValue());
+             }
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -125,13 +130,16 @@ public class PersistentCookieStore implements CookieStore {
         return cookie.getName() + cookie.getDomain();
     }
 
+    @Override
     public List<HttpCookie> get(URI uri) {
         ArrayList<HttpCookie> ret = new ArrayList<HttpCookie>();
-        if(cookies.containsKey(uri.getHost()))
+        if(cookies.containsKey(uri.getHost())) {
             ret.addAll(cookies.get(uri.getHost()).values());
+        }
         return ret;
     }
 
+    @Override
     public boolean removeAll() {
     	cookiePrefs.clear();
         cookies.clear();
@@ -139,6 +147,7 @@ public class PersistentCookieStore implements CookieStore {
     }
 
 
+    @Override
     public boolean remove(URI uri, HttpCookie cookie) {
         String name = getCookieToken(uri, cookie);
 
@@ -155,6 +164,7 @@ public class PersistentCookieStore implements CookieStore {
         }
     }
 
+    @Override
     public List<HttpCookie> getCookies() {
         ArrayList<HttpCookie> ret = new ArrayList<HttpCookie>();
         for (String key : cookies.keySet()){
@@ -164,14 +174,16 @@ public class PersistentCookieStore implements CookieStore {
         return ret;
     }
 
+    @Override
     public List<URI> getURIs() {
         ArrayList<URI> ret = new ArrayList<URI>();
-        for (String key : cookies.keySet())
+        for (String key : cookies.keySet()) {
             try {
                 ret.add(new URI(key));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
+        }
 
         return ret;
     }
@@ -183,8 +195,9 @@ public class PersistentCookieStore implements CookieStore {
      * @return cookie encoded as String
      */
     protected String encodeCookie(SerializableHttpCookie cookie) {
-        if (cookie == null)
+        if (cookie == null) {
             return null;
+        }
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(os);

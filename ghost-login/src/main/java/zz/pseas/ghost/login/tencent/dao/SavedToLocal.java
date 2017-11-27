@@ -32,10 +32,11 @@ public class SavedToLocal {
 		System.out.println(
 				"fromuin :" + m.fromUin + " touin : " + m.toUin + " content : " + m.content + " time : " + m.time);
 
-		if (m.type.indexOf("group") >= 0)
-			saveGroupMessage(m);
-		else
-			saveMessage(m);
+		if (m.type.indexOf("group") >= 0) {
+            saveGroupMessage(m);
+        } else {
+            saveMessage(m);
+        }
 	}
 
 	private void saveGroupMessage(Message m) {

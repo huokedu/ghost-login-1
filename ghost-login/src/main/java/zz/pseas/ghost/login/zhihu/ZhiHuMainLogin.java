@@ -33,6 +33,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.cookie.BestMatchSpecFactory;
 import org.apache.http.impl.cookie.BrowserCompatSpecFactory;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
@@ -86,7 +87,7 @@ public class ZhiHuMainLogin {
      * @return
      */
     public boolean login(String emailOrPhoneNum,
-                         String pwd){
+                         String pwd) throws JSONException {
         String yzm = null;
         String loginState = null;
         HttpGet getRequest = new HttpGet(INDEX_URL);
@@ -142,7 +143,7 @@ public class ZhiHuMainLogin {
         String yzm = sc.nextLine();
         return yzm;
     }
-    public static void main(String[] args){
+    public static void main(String[] args) throws JSONException {
         ZhiHuMainLogin modelLogin = new ZhiHuMainLogin();
         modelLogin.login("邮箱或手机号码", "密码");
     }

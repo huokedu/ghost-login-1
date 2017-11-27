@@ -18,11 +18,6 @@
  */
 package zz.pseas.ghost.client;
 
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-
-import javax.net.ssl.SSLContext;
-
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
@@ -34,6 +29,10 @@ import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+
+import javax.net.ssl.SSLContext;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 /**   
 * @date 2016年9月14日 下午9:26:00 
 * @version   
@@ -44,6 +43,7 @@ public class ClientFactory {
 	public static CloseableHttpClient getNewClient() {
 		try {
 			SSLContext sslContext = SSLContexts.custom().loadTrustMaterial(null, new TrustStrategy() {
+				@Override
 				public boolean isTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
 					return true;
 				}

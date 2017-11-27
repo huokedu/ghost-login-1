@@ -107,8 +107,9 @@ public class ImagePreProcess {
 				for (int y = 0; y < height; ++y) {
 					if (isWhite(img.getRGB(x, y)) != isWhite(bi.getRGB(x, y))) {
 						count++;
-						if (count >= min)
-							break Label1;
+						if (count >= min) {
+                            break Label1;
+                        }
 					}
 				}
 			}

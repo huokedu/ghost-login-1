@@ -70,13 +70,13 @@ class svm_scale
 	{
 		if(y_scaling)
 		{
-			if(value == y_min)
-				value = y_lower;
-			else if(value == y_max)
-				value = y_upper;
-			else
-				value = y_lower + (y_upper-y_lower) *
-				(value-y_min) / (y_max-y_min);
+			if(value == y_min) {
+                value = y_lower;
+            } else if(value == y_max) {
+                value = y_upper;
+            } else {
+                value = y_lower + (y_upper - y_lower) * (value - y_min) / (y_max - y_min);
+            }
 		}
 
 		System.out.print(value + " ");
@@ -85,17 +85,17 @@ class svm_scale
 	private void output(int index, double value)
 	{
 		/* skip single-valued attribute */
-		if(feature_max[index] == feature_min[index])
-			return;
+		if(feature_max[index] == feature_min[index]) {
+            return;
+        }
 
-		if(value == feature_min[index])
-			value = lower;
-		else if(value == feature_max[index])
-			value = upper;
-		else
-			value = lower + (upper-lower) * 
-				(value-feature_min[index])/
-				(feature_max[index]-feature_min[index]);
+		if(value == feature_min[index]) {
+            value = lower;
+        } else if(value == feature_max[index]) {
+            value = upper;
+        } else {
+            value = lower + (upper - lower) * (value - feature_min[index]) / (feature_max[index] - feature_min[index]);
+        }
 
 		if(value != 0)
 		{
@@ -121,7 +121,9 @@ class svm_scale
 
 		for(i=0;i<argv.length;i++)
 		{
-			if (argv[i].charAt(0) != '-')	break;
+			if (argv[i].charAt(0) != '-') {
+                break;
+            }
 			++i;
 			switch(argv[i-1].charAt(1))
 			{
@@ -152,8 +154,9 @@ class svm_scale
 			System.exit(1);
 		}
 
-		if(argv.length != i+1)
-			exit_with_help();
+		if(argv.length != i+1) {
+            exit_with_help();
+        }
 
 		data_filename = argv[i];
 		try {
@@ -282,8 +285,9 @@ class svm_scale
 				y_max = Double.parseDouble(st.nextToken());
 				y_scaling = true;
 			}
-			else
-				fp_restore.reset();
+			else {
+                fp_restore.reset();
+            }
 
 			if(fp_restore.read() == 'x') {
 				fp_restore.readLine();		// pass the '\n' after 'x'
@@ -329,8 +333,9 @@ class svm_scale
 			formatter.format("%.16g %.16g\n", lower, upper);
 			for(i=1;i<=max_index;i++)
 			{
-				if(feature_min[i] != feature_max[i]) 
-					formatter.format("%d %.16g %.16g\n", i, feature_min[i], feature_max[i]);
+				if(feature_min[i] != feature_max[i]) {
+                    formatter.format("%d %.16g %.16g\n", i, feature_min[i], feature_max[i]);
+                }
 			}
 			fp_save.write(formatter.toString());
 			fp_save.close();
@@ -350,21 +355,21 @@ class svm_scale
 			{
 				index = Integer.parseInt(st.nextToken());
 				value = Double.parseDouble(st.nextToken());
-				for (i = next_index; i<index; i++)
-					output(i, 0);
+				for (i = next_index; i<index; i++) {
+                    output(i, 0);
+                }
 				output(index, value);
 				next_index = index + 1;
 			}
 
-			for(i=next_index;i<= max_index;i++)
-				output(i, 0);
+			for(i=next_index;i<= max_index;i++) {
+                output(i, 0);
+            }
 			System.out.print("\n");
 		}
-		if (new_num_nonzeros > num_nonzeros)
-			System.err.print(
-			 "Warning: original #nonzeros " + num_nonzeros+"\n"
-			+"         new      #nonzeros " + new_num_nonzeros+"\n"
-			+"Use -l 0 if many original feature values are zeros\n");
+		if (new_num_nonzeros > num_nonzeros) {
+            System.err.print("Warning: original #nonzeros " + num_nonzeros + "\n" + "         new      #nonzeros " + new_num_nonzeros + "\n" + "Use -l 0 if many original feature values are zeros\n");
+        }
 
 		fp.close();
 	}

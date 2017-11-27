@@ -229,7 +229,8 @@ public class SinaWeiboLogin {
 			panel.add(input);
 			JButton btn = new JButton("确定");
 			btn.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+				@Override
+                public void actionPerformed(ActionEvent e) {
 					userInput = input.getText().trim();
 					synchronized (CaptchaFrame.this) {
 						CaptchaFrame.this.notify();

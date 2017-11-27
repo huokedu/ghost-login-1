@@ -18,15 +18,6 @@
  */
 package zz.pseas.ghost.client;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.http.Header;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.CookieStore;
@@ -42,8 +33,16 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-
 import zz.pseas.ghost.utils.DownloadUtil;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 /**   
 * @date 2016年9月14日 下午9:26:00 
 * @version   
@@ -238,8 +237,9 @@ public class GhostClient {
 		BufferedReader r2 = new BufferedReader(reader);
 		while (true) {
 			String s = r2.readLine();
-			if (s == null)
+			if (s == null) {
 				break;
+			}
 			int n = s.indexOf(";");
 			String s1 = s.substring(0, n);
 			String k = s1.substring(0, s1.indexOf("="));

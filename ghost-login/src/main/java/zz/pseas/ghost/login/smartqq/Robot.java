@@ -80,6 +80,6 @@ public class Robot {
 	public static void main(String[] args)
 	{
 		Robot rb=new Robot();
-		rb.postsms("你");
+		postsms("你");
 	}
 }

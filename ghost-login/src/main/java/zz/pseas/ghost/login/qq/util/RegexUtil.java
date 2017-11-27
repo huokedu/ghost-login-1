@@ -128,10 +128,13 @@ public class RegexUtil {
 	 * @throws NullPointerException 若str为null的时候
 	 */
 	public static String substringMiddle(String str, String a, String b){
-		if( str == null )
-			throw new NullPointerException();
+		if( str == null ) {
+            throw new NullPointerException();
+        }
 		if( !a.equals(b) && str.indexOf(b) < str.indexOf(a) )    //若第二个字符比第一个字符先出现
-			str = str.substring( str.indexOf( b )+1 );           //剪去第一次出现第二个字符之前的字符
+        {
+            str = str.substring(str.indexOf(b) + 1);           //剪去第一次出现第二个字符之前的字符
+        }
 		StringTokenizer st = new StringTokenizer(str.substring( str.indexOf(a)+1 ) );
 		try{
 			return st.nextToken(b);

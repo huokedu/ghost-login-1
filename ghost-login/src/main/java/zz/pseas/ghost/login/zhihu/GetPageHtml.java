@@ -43,8 +43,9 @@ public class GetPageHtml {
 	
 	public static String getPageHtml(String url) {
 
-		if(StringUtil.isBlank(url))
-			return "";
+		if(StringUtil.isBlank(url)) {
+            return "";
+        }
 		String result = null;
 		try {
 			Request request = new Request.Builder().url(url)

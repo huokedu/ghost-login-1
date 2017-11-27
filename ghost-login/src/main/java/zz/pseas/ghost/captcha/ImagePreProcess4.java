@@ -257,16 +257,20 @@ public class ImagePreProcess4 {
 		boolean bNotThree = isNotThree(img);
 		boolean bNotFive = isNotFive(img);
 		for (BufferedImage bi : map.keySet()) {
-			if (bNotThree && map.get(bi).startsWith("3"))
-				continue;
-			if (bNotEight && map.get(bi).startsWith("8"))
-				continue;
-			if (bNotFive && map.get(bi).startsWith("5"))
-				continue;
+			if (bNotThree && map.get(bi).startsWith("3")) {
+                continue;
+            }
+			if (bNotEight && map.get(bi).startsWith("8")) {
+                continue;
+            }
+			if (bNotFive && map.get(bi).startsWith("5")) {
+                continue;
+            }
 			double count1 = getBlackCount(img);
 			double count2 = getBlackCount(bi);
-			if (Math.abs(count1 - count2) / Math.max(count1, count2) > 0.25)
-				continue;
+			if (Math.abs(count1 - count2) / Math.max(count1, count2) > 0.25) {
+                continue;
+            }
 			int count = 0;
 			if (width < bi.getWidth() && height < bi.getHeight()) {
 				for (int m = 0; m <= bi.getWidth() - width; m++) {
@@ -276,8 +280,9 @@ public class ImagePreProcess4 {
 								if (isWhite(img.getRGB(x - m, y - n)) != isWhite(bi
 										.getRGB(x, y))) {
 									count++;
-									if (count >= min)
-										break Label1;
+									if (count >= min) {
+                                        break Label1;
+                                    }
 								}
 							}
 						}
@@ -292,8 +297,9 @@ public class ImagePreProcess4 {
 						if (isWhite(img.getRGB(x, y)) != isWhite(bi
 								.getRGB(x, y))) {
 							count++;
-							if (count >= min)
-								break Label1;
+							if (count >= min) {
+                                break Label1;
+                            }
 						}
 					}
 				}

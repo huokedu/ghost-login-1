@@ -18,6 +18,9 @@
  */
 package zz.pseas.ghost.login.tuling;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,8 +29,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-
-import org.json.JSONObject;
 /**
  * @date 2016年11月30日 下午12:03:21
  * @version
@@ -42,7 +43,7 @@ public class TLAnswer {
         this.ask = ask;
     }
     
-    public String ask(String content) {
+    public String ask(String content) throws JSONException {
         this.ask = content;
         if(content != null) {
             try {
@@ -93,7 +94,7 @@ public class TLAnswer {
         return json.getString("text");
          
     }
-    public static void main(String ...strings) {
+    public static void main(String ...strings) throws JSONException {
         TLAnswer tLAnswer = new TLAnswer();
         System.out.println(tLAnswer.ask("墨子是谁？"));
     }

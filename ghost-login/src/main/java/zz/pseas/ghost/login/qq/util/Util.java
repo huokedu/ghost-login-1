@@ -119,8 +119,9 @@ public class Util {
 	 * @throws RuntimeException 时间格式错误
 	 */
 	public static long afterDay(String afterTime){
-		if( !java.util.regex.Pattern.compile("\\d{1,2}:\\d{1,2}+").matcher(afterTime).matches())
-			throw new RuntimeException("format error");
+		if( !java.util.regex.Pattern.compile("\\d{1,2}:\\d{1,2}+").matcher(afterTime).matches()) {
+            throw new RuntimeException("format error");
+        }
 		
 		long now = System.currentTimeMillis();
 		Calendar c = Calendar.getInstance();
@@ -142,8 +143,9 @@ public class Util {
 	 * @return 填充完成的新字符串
 	 */
 	public static String fillString(String fill,String ...str){
-		if(null == fill ||null == str)
-			return "";
+		if(null == fill ||null == str) {
+            return "";
+        }
 		
 		int $i = 0;
 		for(String v : str ){
